@@ -34,7 +34,7 @@
         };
         xhr.send(null);
       }
-      get_information("https://api.techniknews.net/ipgeo/", function(text) {
+      get_information("https://ipapi.co/json", function(text) {
         var div = document.createElement("div");
         div.innerHTML = text;
         div.id = "razzylog";
